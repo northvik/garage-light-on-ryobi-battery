@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" width="1240" height="720" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <style>
+      .plus { stroke: #d62828; stroke-width: 4; fill: none; stroke-linejoin: round; }
+      .minus { stroke: #1d1d1d; stroke-width: 4; fill: none; stroke-linejoin: round; }
+      .wago { fill: #e9ecef; stroke: #495057; stroke-width: 1.5; }
+      .lever { fill: #f08c00; stroke: #9c5700; stroke-width: 1; }
+      .label { font-size: 13px; fill: #343a40; }
+      .small { font-size: 11px; fill: #495057; }
+      .title { font-size: 20px; font-weight: bold; fill: #212529; }
+    </style>
+  </defs>
+  <rect width="1240" height="720" fill="#ffffff"/>
+  <text x="30" y="38" class="title">Wiring diagram · garage light on a Ryobi battery</text>
+
+  <!-- Always-on switch, in parallel with the sensor on the negative side -->
+  <path class="minus" d="M 880 248 V 60 H 714"/>
+  <path class="minus" d="M 636 60 H 450 V 318"/>
+  <circle cx="640" cy="60" r="5" fill="#fff" stroke="#1d1d1d" stroke-width="2.5"/>
+  <circle cx="710" cy="60" r="5" fill="#fff" stroke="#1d1d1d" stroke-width="2.5"/>
+  <line x1="643" y1="57" x2="702" y2="36" stroke="#1d1d1d" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="675" y="86" class="label" text-anchor="middle">"Always on" switch</text>
+
+  <!-- Sensor -->
+  <rect x="470" y="128" width="40" height="50" rx="10" fill="#343a40"/>
+  <rect x="482" y="140" width="10" height="26" rx="5" fill="#fff"/>
+  <rect x="790" y="128" width="40" height="50" rx="10" fill="#343a40"/>
+  <rect x="808" y="140" width="10" height="26" rx="5" fill="#fff"/>
+  <rect x="500" y="100" width="300" height="105" rx="12" fill="#212529"/>
+  <circle cx="650" cy="138" r="27" fill="#f1f3f5" stroke="#adb5bd"/>
+  <text x="650" y="192" font-size="12" fill="#ffffff" text-anchor="middle">QWORK PIR-8 motion sensor</text>
+  <rect x="560" y="200" width="160" height="36" rx="3" fill="#2f9e44" stroke="#1b5e20"/>
+  <g fill="#b2f2bb" stroke="#1b5e20">
+    <circle cx="580" cy="211" r="5"/><circle cx="620" cy="211" r="5"/>
+    <circle cx="660" cy="211" r="5"/><circle cx="700" cy="211" r="5"/>
+  </g>
+  <g font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    <text x="580" y="231">OUT−</text><text x="620" y="231">OUT+</text>
+    <text x="660" y="231">IN+</text><text x="700" y="231">IN−</text>
+  </g>
+
+  <!-- Battery and adapter -->
+  <path class="plus" d="M 660 236 V 290 H 1010 V 330"/>
+  <path class="minus" d="M 700 236 V 260 H 862"/>
+  <path class="minus" d="M 898 260 H 1070 V 330"/>
+  <rect x="915" y="280" width="34" height="20" rx="3" fill="#fff3bf" stroke="#d62828" stroke-width="2"/>
+  <text x="932" y="316" class="small" text-anchor="middle">fuse</text>
+  <rect x="970" y="330" width="140" height="55" rx="6" fill="#495057"/>
+  <text x="1040" y="355" font-size="12" fill="#fff" text-anchor="middle">POFET adapter</text>
+  <text x="1040" y="372" font-size="11" fill="#dee2e6" text-anchor="middle">with fuse</text>
+  <rect x="955" y="385" width="170" height="175" rx="10" fill="#c5d600" stroke="#7c8700" stroke-width="2"/>
+  <text x="1040" y="460" font-size="16" font-weight="bold" fill="#2b2b2b" text-anchor="middle">Ryobi ONE+</text>
+  <text x="1040" y="482" font-size="14" fill="#2b2b2b" text-anchor="middle">18 V · 2 Ah</text>
+  <text x="1040" y="520" class="small" text-anchor="middle">pull it out = all off</text>
+  <text x="1018" y="324" font-size="14" font-weight="bold" fill="#d62828">+</text>
+  <text x="1078" y="324" font-size="14" font-weight="bold" fill="#1d1d1d">−</text>
+
+  <!-- Battery-side Wago -->
+  <rect x="862" y="248" width="36" height="24" rx="3" class="wago"/>
+  <rect x="867" y="252" width="7" height="7" class="lever"/><rect x="877" y="252" width="7" height="7" class="lever"/><rect x="887" y="252" width="7" height="7" class="lever"/>
+  <text x="906" y="246" class="small">Wago 221 ×3</text>
+
+  <!-- Sensor outputs to the bars -->
+  <path class="minus" d="M 580 236 V 330 H 468"/>
+  <path class="minus" d="M 432 330 H 380"/>
+  <path class="plus" d="M 620 236 V 610 H 380"/>
+  <rect x="432" y="318" width="36" height="24" rx="3" class="wago"/>
+  <rect x="437" y="322" width="7" height="7" class="lever"/><rect x="447" y="322" width="7" height="7" class="lever"/><rect x="457" y="322" width="7" height="7" class="lever"/>
+  <text x="472" y="356" class="small">Wago 221 ×3</text>
+
+  <!-- − and + buses (5-way Wago 221) -->
+  <rect x="100" y="316" width="280" height="28" rx="4" class="wago"/>
+  <g class="lever">
+    <rect x="122" y="321" width="16" height="10"/><rect x="182" y="321" width="16" height="10"/>
+    <rect x="242" y="321" width="16" height="10"/><rect x="302" y="321" width="16" height="10"/>
+    <rect x="352" y="321" width="16" height="10"/>
+  </g>
+  <text x="100" y="308" class="label">Wago 221 ×5 · all −</text>
+  <rect x="100" y="596" width="280" height="28" rx="4" class="wago"/>
+  <g class="lever">
+    <rect x="122" y="601" width="16" height="10"/><rect x="182" y="601" width="16" height="10"/>
+    <rect x="242" y="601" width="16" height="10"/><rect x="302" y="601" width="16" height="10"/>
+    <rect x="352" y="601" width="16" height="10"/>
+  </g>
+  <text x="100" y="644" class="label">Wago 221 ×5 · all +</text>
+
+  <!-- 4 LED bars -->
+  <g>
+    <path class="minus" d="M 130 344 V 390 M 190 344 V 390 M 250 344 V 390 M 310 344 V 390"/>
+    <path class="plus" d="M 130 560 V 596 M 190 560 V 596 M 250 560 V 596 M 310 560 V 596"/>
+    <g fill="#fff9db" stroke="#f59f00" stroke-width="2">
+      <rect x="117" y="390" width="26" height="170" rx="5"/><rect x="177" y="390" width="26" height="170" rx="5"/>
+      <rect x="237" y="390" width="26" height="170" rx="5"/><rect x="297" y="390" width="26" height="170" rx="5"/>
+    </g>
+    <g font-size="12" fill="#5c3c00" text-anchor="middle">
+      <text transform="translate(134 475) rotate(-90)">LED 1</text>
+      <text transform="translate(194 475) rotate(-90)">LED 2</text>
+      <text transform="translate(254 475) rotate(-90)">LED 3</text>
+      <text transform="translate(314 475) rotate(-90)">LED 4</text>
+    </g>
+  </g>
+  <text x="30" y="672" class="label">4 MERTTURM 10 W LED bars, each on its own 2 × 1.5 mm² cable</text>
+  <text x="30" y="690" class="label">Leave the button on each bar set to ON.</text>
+
+  <!-- Legend -->
+  <rect x="700" y="585" width="510" height="120" rx="8" fill="#f8f9fa" stroke="#dee2e6"/>
+  <line x1="720" y1="608" x2="760" y2="608" class="plus"/>
+  <text x="770" y="612" class="label">+ : brown wire of the 2 × 1.5 cable</text>
+  <line x1="1010" y1="608" x2="1050" y2="608" class="minus"/>
+  <text x="1060" y="612" class="label">− : blue wire</text>
+  <text x="720" y="636" class="label">Switch open: motion mode · closed: lights stay on</text>
+  <text x="720" y="662" font-size="12" font-weight="bold" fill="#2b8a3e">Checked: the PIR-8 switches the − side.</text>
+  <text x="720" y="680" font-size="12" fill="#495057">IN+ and OUT+ are connected inside (continuity beeps). If yours does not,</text>
+  <text x="720" y="696" font-size="12" fill="#495057">wire the switch between IN+ and OUT+ instead of IN− and OUT−.</text>
+</svg>
